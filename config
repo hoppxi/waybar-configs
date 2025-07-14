@@ -1,0 +1,240 @@
+[
+  {
+    "backlight": {
+      "format": "{icon}",
+      "format-icons": [
+        "󰃞",
+        "󰃟",
+        "󰃝",
+        "󰃠",
+        "󰃚"
+      ],
+      "on-click": "~/.config/rofi/scripts/backlight.sh",
+      "on-click-middle": "brightnessctl set 100%",
+      "on-click-right": "brightnessctl set 10%",
+      "scroll-step": 2,
+      "tooltip": true,
+      "tooltip-format": "Brightness: {percent}%\n"
+    },
+    "battery": {
+      "format": "{icon}",
+      "format-charging": "{icon}",
+      "format-full": "",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "format-plugged": "{icon}",
+      "interval": 30,
+      "on-click": "~/.config/rofi/scripts/battery.sh",
+      "states": {
+        "critical": 10,
+        "good": 90,
+        "warning": 25
+      },
+      "tooltip": true,
+      "tooltip-format-charging": "⚡ {capacity}%\nUntil full: {time}\nHealth: {health}\n",
+      "tooltip-format-discharging": "⚡ {capacity}%\nUntil empty: {time}\nHealth: {health}\n",
+      "tooltip-format-full": "⚡ {capacity}% (Full)\nHealth: {health}\n"
+    },
+    "clock": {
+      "format": "{:%I:%M %p}",
+      "on-click": "~/.config/rofi/scripts/calendar.sh",
+      "tooltip-format": "{:%A, %d %B %Y}"
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "interval": 5
+    },
+    "custom/appmenu": {
+      "exec": "echo '{\"text\": \"󱄅\", \"alt\": \"Apps\"}'",
+      "exec-if": "command -v rofi",
+      "format": "󱄅",
+      "interval": 0,
+      "on-click": "rofi -show drun -replace",
+      "on-click-right": "rofi -show run -replace",
+      "on-scroll-down": "rofi -show window",
+      "on-scroll-up": "rofi -show drun",
+      "return-type": "json",
+      "tooltip": true,
+      "tooltip-format": "Menu"
+    },
+    "custom/browser": {
+      "format": "",
+      "on-click": "brave",
+      "tooltip": true,
+      "tooltip-format": "Brave"
+    },
+    "custom/editor": {
+      "format": "",
+      "on-click": "code",
+      "tooltip": true,
+      "tooltip-format": "vscode"
+    },
+    "custom/github": {
+      "format": "",
+      "on-click": "xdg-open https://github.com",
+      "tooltip": true,
+      "tooltip-format": "GitHub"
+    },
+    "custom/powermenu": {
+      "format": " ",
+      "on-click": "~/.config/rofi/scripts/power.sh",
+      "tooltip": false,
+      "tooltip-format": "Powermenu"
+    },
+    "custom/youtube": {
+      "format": "",
+      "on-click": "xdg-open https://youtube.com",
+      "tooltip": true,
+      "tooltip-format": "YouTube"
+    },
+    "group/quicklinks": {
+      "modules": [
+        "custom/browser",
+        "custom/github",
+        "custom/youtube",
+        "custom/editor"
+      ],
+      "orientation": "horizontal"
+    },
+    "height": 36,
+    "hyprland/window": {
+      "format": " {}",
+      "icon": true,
+      "icon-size": 18,
+      "max-length": 30,
+      "rewrite": {
+        " ": "<span foreground='#89b4fa'> </span> Hyprland",
+        " tmux(.*)": "<span foreground='#a6e3a1'> </span> Tmux",
+        " ~": "  Terminal"
+      },
+      "swap-icon-label": false,
+      "tooltip": false
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace +1",
+      "on-scroll-up": "hyprctl dispatch workspace -1",
+      "persistent-workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+      }
+    },
+    "layer": "top",
+    "memory": {
+      "format": " {used:0.1f}G",
+      "interval": 10
+    },
+    "mode": "dock",
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+    "modules-left": [
+      "custom/appmenu",
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "mpris",
+      "pulseaudio",
+      "network",
+      "backlight",
+      "battery",
+      "tray",
+      "clock",
+      "custom/powermenu"
+    ],
+    "mpris": {
+      "format": "{statusIcon} {title} - {artist}",
+      "format-paused": " {title} - {artist}",
+      "format-playing": " {title} - {artist}",
+      "format-stopped": " Stopped",
+      "max-length": 20,
+      "on-click": "playerctl play-pause",
+      "on-click-right": "~/.config/rofi/scripts/music.sh",
+      "player": "playerctld",
+      "status-icons": {
+        "paused": "",
+        "playing": "",
+        "stopped": ""
+      },
+      "tooltip": true,
+      "tooltip-format": "♫ {title}\nby {artist}\non {album}",
+      "unknown-tag": "N/A"
+    },
+    "network": {
+      "format-disabled": "󱚼",
+      "format-disconnected": "󰖪",
+      "format-ethernet": "󰈀",
+      "format-icons": {
+        "wifi": [
+          "󰤯",
+          "󰤟",
+          "󰤢",
+          "󰤨"
+        ]
+      },
+      "format-wifi": "{icon}",
+      "interval": 5,
+      "on-click": "~/.config/rofi/scripts/wifi.sh",
+      "tooltip": true,
+      "tooltip-format-disconnected": "No network connection\n",
+      "tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}\nIP: {ipaddr}\n",
+      "tooltip-format-wifi": "SSID: {essid}\nInterface: {ifname}\nSignal Strength: {signalStrength}%\nIP: {ipaddr}\n"
+    },
+    "position": "top",
+    "pulseaudio": {
+      "format": "{icon}",
+      "format-bluetooth": "{icon}",
+      "format-bluetooth-muted": "{icon} Muted",
+      "format-icons": {
+        "car": "",
+        "computer": "",
+        "default": [
+          "",
+          "",
+          ""
+        ],
+        "hands-free": "󰂯",
+        "headphone": "",
+        "headset": "󰋎",
+        "phone": "",
+        "portable": ""
+      },
+      "format-muted": " Muted",
+      "format-source": "{volume}% ",
+      "format-source-muted": "  Muted",
+      "on-click": "~/.config/rofi/scripts/volume.sh",
+      "on-click-right": "pavucontrol",
+      "scroll-step": 1,
+      "tooltip": true,
+      "tooltip-format": "Device: {desc}\nVolume: {volume}%\nMic: {format_source}\n"
+    },
+    "reload_style_on_change": true,
+    "tray": {
+      "background": false,
+      "gtk-layer-shell": true,
+      "halign": "right",
+      "icon-size": 18,
+      "margin": 5,
+      "monitored-apps": [
+        "vesktop",
+        "telegram"
+      ],
+      "orientation": "horizontal",
+      "show-hidden-items": false,
+      "show-passive-items": true,
+      "spacing": 10,
+      "tooltip": true,
+      "valign": "center"
+    }
+  }
+]
+
