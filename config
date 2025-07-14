@@ -9,7 +9,7 @@
         "󰃠",
         "󰃚"
       ],
-      "on-click": "~/.config/rofi/scripts/backlight.sh",
+      "on-click": "scripts/backlight.sh",
       "on-click-middle": "brightnessctl set 100%",
       "on-click-right": "brightnessctl set 10%",
       "scroll-step": 2,
@@ -29,7 +29,7 @@
       ],
       "format-plugged": "{icon}",
       "interval": 30,
-      "on-click": "~/.config/rofi/scripts/battery.sh",
+      "on-click": "scripts/battery.sh",
       "states": {
         "critical": 10,
         "good": 90,
@@ -42,7 +42,7 @@
     },
     "clock": {
       "format": "{:%I:%M %p}",
-      "on-click": "~/.config/rofi/scripts/calendar.sh",
+      "on-click": "scripts/calendar.sh",
       "tooltip-format": "{:%A, %d %B %Y}"
     },
     "cpu": {
@@ -82,7 +82,7 @@
     },
     "custom/powermenu": {
       "format": " ",
-      "on-click": "~/.config/rofi/scripts/power.sh",
+      "on-click": "scripts/power.sh",
       "tooltip": false,
       "tooltip-format": "Powermenu"
     },
@@ -158,7 +158,7 @@
       "format-stopped": " Stopped",
       "max-length": 20,
       "on-click": "playerctl play-pause",
-      "on-click-right": "~/.config/rofi/scripts/music.sh",
+      "on-click-right": "scripts/music.sh",
       "player": "playerctld",
       "status-icons": {
         "paused": "",
@@ -183,7 +183,7 @@
       },
       "format-wifi": "{icon}",
       "interval": 5,
-      "on-click": "~/.config/rofi/scripts/wifi.sh",
+      "on-click": "scripts/wifi.sh",
       "tooltip": true,
       "tooltip-format-disconnected": "No network connection\n",
       "tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}\nIP: {ipaddr}\n",
@@ -211,7 +211,7 @@
       "format-muted": " Muted",
       "format-source": "{volume}% ",
       "format-source-muted": "  Muted",
-      "on-click": "~/.config/rofi/scripts/volume.sh",
+      "on-click": "scripts/volume.sh",
       "on-click-right": "pavucontrol",
       "scroll-step": 1,
       "tooltip": true,
