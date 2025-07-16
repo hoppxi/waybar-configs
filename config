@@ -9,7 +9,7 @@
         "󰃠",
         "󰃚"
       ],
-      "on-click": "scripts/backlight.sh",
+      "on-click": "if [ ! -f /tmp/eww_toggle ]; then echo 0 > /tmp/eww_toggle; fi; n=$(cat /tmp/eww_toggle); if [ \"$n\" -eq 0 ]; then eww close-all && eww open quicksettings; echo 1 > /tmp/eww_toggle; else eww close-all; echo 0 > /tmp/eww_toggle; fi\n",
       "on-click-middle": "brightnessctl set 100%",
       "on-click-right": "brightnessctl set 10%",
       "scroll-step": 2,
@@ -29,7 +29,7 @@
       ],
       "format-plugged": "{icon}",
       "interval": 30,
-      "on-click": "scripts/battery.sh",
+      "on-click": "if [ ! -f /tmp/eww_toggle ]; then echo 0 > /tmp/eww_toggle; fi; n=$(cat /tmp/eww_toggle); if [ \"$n\" -eq 0 ]; then eww close-all && eww open quicksettings; echo 1 > /tmp/eww_toggle; else eww close-all; echo 0 > /tmp/eww_toggle; fi\n",
       "states": {
         "critical": 10,
         "good": 90,
@@ -42,7 +42,7 @@
     },
     "clock": {
       "format": "{:%I:%M %p}",
-      "on-click": "scripts/calendar.sh",
+      "on-click": "if [ ! -f /tmp/eww_toggle ]; then echo 0 > /tmp/eww_toggle; fi; n=$(cat /tmp/eww_toggle); if [ \"$n\" -eq 0 ]; then eww close-all && eww open calendar; echo 1 > /tmp/eww_toggle; else eww close-all; echo 0 > /tmp/eww_toggle; fi\n",
       "tooltip-format": "{:%A, %d %B %Y}"
     },
     "cpu": {
@@ -82,7 +82,7 @@
     },
     "custom/powermenu": {
       "format": " ",
-      "on-click": "scripts/power.sh",
+      "on-click": "if [ ! -f /tmp/eww_toggle ]; then echo 0 > /tmp/eww_toggle; fi; n=$(cat /tmp/eww_toggle); if [ \"$n\" -eq 0 ]; then eww close-all && eww open power; echo 1 > /tmp/eww_toggle; else eww close-all; echo 0 > /tmp/eww_toggle; fi\n",
       "tooltip": false,
       "tooltip-format": "Powermenu"
     },
@@ -157,8 +157,8 @@
       "format-playing": " {title} - {artist}",
       "format-stopped": " Stopped",
       "max-length": 20,
-      "on-click": "playerctl play-pause",
-      "on-click-right": "scripts/music.sh",
+      "on-click": "if [ ! -f /tmp/eww_toggle ]; then echo 0 > /tmp/eww_toggle; fi; n=$(cat /tmp/eww_toggle); if [ \"$n\" -eq 0 ]; then eww close-all && eww open music; echo 1 > /tmp/eww_toggle; else eww close-all; echo 0 > /tmp/eww_toggle; fi\n",
+      "on-click-right": "playerctl play-pause",
       "player": "playerctld",
       "status-icons": {
         "paused": "",
@@ -183,7 +183,7 @@
       },
       "format-wifi": "{icon}",
       "interval": 5,
-      "on-click": "scripts/wifi.sh",
+      "on-click": "if [ ! -f /tmp/eww_toggle ]; then echo 0 > /tmp/eww_toggle; fi; n=$(cat /tmp/eww_toggle); if [ \"$n\" -eq 0 ]; then eww close-all && eww open quicksettings; echo 1 > /tmp/eww_toggle; else eww close-all; echo 0 > /tmp/eww_toggle; fi\n",
       "tooltip": true,
       "tooltip-format-disconnected": "No network connection\n",
       "tooltip-format-ethernet": "Connected via Ethernet\nInterface: {ifname}\nIP: {ipaddr}\n",
@@ -211,7 +211,7 @@
       "format-muted": " Muted",
       "format-source": "{volume}% ",
       "format-source-muted": "  Muted",
-      "on-click": "scripts/volume.sh",
+      "on-click": "if [ ! -f /tmp/eww_toggle ]; then echo 0 > /tmp/eww_toggle; fi; n=$(cat /tmp/eww_toggle); if [ \"$n\" -eq 0 ]; then eww close-all && eww open quicksettings; echo 1 > /tmp/eww_toggle; else eww close-all; echo 0 > /tmp/eww_toggle; fi\n",
       "on-click-right": "pavucontrol",
       "scroll-step": 1,
       "tooltip": true,
@@ -237,4 +237,3 @@
     }
   }
 ]
-
